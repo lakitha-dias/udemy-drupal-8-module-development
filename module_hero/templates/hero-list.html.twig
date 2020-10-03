@@ -4,6 +4,6 @@
 
 <ol>
 	{% for item in items %}
-		<li>{{ item.name }}</li>
+		<li class="animated {{ random(['bounce', 'flash', 'rubberBand']) }}">{{ item.name }}</li>
 	{% endfor %}
 </ol>
