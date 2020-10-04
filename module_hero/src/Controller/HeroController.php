@@ -3,6 +3,8 @@
 namespace Drupal\module_hero\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\module_hero\HeroArticleService;
 
 /****
  * @author : Lakitha Dias
@@ -11,6 +13,18 @@ use Drupal\Core\Controller\ControllerBase;
 
 class HeroController extends ControllerBase
 {
+    
+    private $articleHeroService;
+    
+    public static function create(ContainerInterface $container){
+        return new static(
+               $container->get('module_hero.hero_articles')
+            );
+    }
+    
+    public function __construct(HeroArticleService $articleHeroService){
+        $this->articleHeroService = $articleHeroService;
+    }
     
     public function heroList(){
         
