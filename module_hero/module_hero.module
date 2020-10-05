@@ -26,5 +26,15 @@ function module_hero_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $fo
 	if($form_id == 'node_article_form'){
 		$form['field_tags']['#access'] = FALSE;
 		$form['title']['widget'][0]['value']['#title'] = t('Article Title');
+		
+		$form['#validate'][] = '_module_hero_article_validate';
 	}
+}
+
+
+/**
+* Our custom validation function
+*/
+function _module_hero_article_validate(&$form, $form_state){
+	$form_state->setErrorByName('title', t('Title should not be a number.'));
 }

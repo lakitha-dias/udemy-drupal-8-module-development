@@ -64,5 +64,17 @@ class HeroForm extends FormBase{
             $form_state->getValue('rival_2').'is:'.  $form_state->getValue('rival_', $winner)
         );
     }
+    
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Drupal\Core\Form\FormBase::validateForm()
+     */
+    public function validateForm(array &$form, FormStateInterface $form_state){
+        if(empty($form_state->getValue('rival_1'))){
+            $form_state->setErrorByName('rival_1', $this->t('Please specify rival one'));
+        }
+    }
 
 }
