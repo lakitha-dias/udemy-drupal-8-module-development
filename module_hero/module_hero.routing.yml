@@ -20,5 +20,13 @@ module_hero.exampleform:
     _form: '\Drupal\module_hero\Form\ExampleForm'
     _title: 'Show some elements.'
   requirements:
-    _permission: 'access content'    
+    _permission: 'access content'
+    
+module_hero.ajaxheroform:
+  path: '/ajax-form'
+  defaults:
+    _form: '\Drupal\module_hero\Form\AjaxHeroForm'
+    _title: 'ajax hero form'
+  requirements:
+    _permission: 'access content'         
         
