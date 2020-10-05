@@ -12,4 +12,13 @@ module_hero.heroform:
     _form: '\Drupal\module_hero\Form\HeroForm'
     _title: 'Who will win'
   requirements:
+    _permission: 'access content'
+
+module_hero.exampleform:
+  path: '/example-form'
+  defaults:
+    _form: '\Drupal\module_hero\Form\ExampleForm'
+    _title: 'Show some elements.'
+  requirements:
     _permission: 'access content'    
+        
